@@ -7,12 +7,29 @@ export class Triangle {
     this.sideTwo = sideTwo;
     this.sideThree = sideThree;
   }
-
-  get isEquilateral(): boolean {
+  get isEquilateral() {
     return (
       this.sideOne != 0 &&
       this.sideOne === this.sideTwo &&
       this.sideThree === this.sideOne
+    );
+  }
+  get isIsosceles() {
+    return (
+      (this.sideOne === this.sideTwo &&
+        this.sideThree < this.sideOne + this.sideTwo) ||
+      (this.sideTwo === this.sideThree &&
+        this.sideOne < this.sideTwo + this.sideThree) ||
+      (this.sideOne === this.sideThree &&
+        this.sideTwo < this.sideOne + this.sideThree)
+    );
+  }
+  get isScalene() {
+    return (
+      this.sideOne != this.sideTwo &&
+      this.sideOne != this.sideThree &&
+      this.sideTwo != this.sideThree &&
+      this.sideOne < this.sideTwo + this.sideThree
     );
   }
 }
